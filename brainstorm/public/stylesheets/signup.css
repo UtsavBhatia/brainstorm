@@ -1,0 +1,12 @@
+.form-group {
+    width: 40%;
+    margin: 20px auto;
+}
+
+.form {
+    margin : 50px auto;
+}
+
+#logout_btn {
+    display: none;
+}

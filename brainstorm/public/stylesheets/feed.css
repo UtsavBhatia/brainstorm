@@ -1,0 +1,11 @@
+#login_btn {
+    visibility: hidden;
+}
+
+.form-inline{
+    visibility: visible;
+}
+
+.card{
+    margin: 20px auto;
+}
