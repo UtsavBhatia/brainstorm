@@ -9,3 +9,7 @@
 .float-right{
     margin-left: 60%;
 }
+
+#login_btn {
+    visibility: hidden;
+}

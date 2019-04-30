@@ -1,19 +1,48 @@
 <% include partials/header %>
-    <link rel="stylesheet" type="text/css" href="stylesheets/feed.css">
-    <div class="container">
-        <h3>Welcome, <%= employee.id %></h3>
-        <div class="card text-center">
-            <div class="card-header">
-                <%=employee.id%>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-muted">
-                2 days ago
-            </div>
+<link rel="stylesheet" type="text/css" href="stylesheets/feed.css">
+<div class="col-8 container">
+    <div class="fluid row">
+        <h3>Welcome, <%= employee.fullname %></h3>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitNewIdea">
+                <i class="fa fa-plus"></i> Idea
+            </button>
         </div>
     </div>
+    <% ideas.forEach(function(idea){ %>
+        <div class="card">
+            <div class="card-header">
+                <%= idea.employee.fullname %>
+            </div>
+            <div class="padded card-body">
+                <h5 class="card-title"><%= idea.topic %></h5>
+                <p class="card-text"><%= idea.description.substring(0,100)%><a href="/feed/<%=idea._id%>">&nbsp(Read more)</a></p>
+            </div>
+            <div class="card-footer text-center text-muted">
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" onclick="updateUpvote(this)" class="btn btn-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                          <i class="fa fa-heart"></i><span id="count"> 0</span>
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn fluid btn-block btn-light" href="/feed/<%=idea._id%>">
+                            <i class="fa fa-list-ul"></i> Discuss
+                        </a>
+                    </div>
+                    <div class="col-4 align-text-bottom"><%- idea.date.toLocaleDateString("en-US") + "<br>" + idea.date.toLocaleTimeString("en-US") %></div>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
+<script>
+    function updateUpvote(obj){
+        var c = int($(obj).find("span").innerHTML);
+        c++;
+        $(obj).find("span").innerHTML = c;
+        );
+    }
+</script>
+<% include partials/newIdea %>
 <% include partials/footer %>

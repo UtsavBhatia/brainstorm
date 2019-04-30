@@ -6,7 +6,6 @@ body{
 	background: url(https://images.unsplash.com/photo-1522424427542-e6fc86ff5253);
 	background-size: 100% 100%;
 	background-position: center;
-	font-family: lato;
 	color: white;
 }
 
@@ -31,9 +30,6 @@ hr{
 }
 
 #content{
+	font-family: lato;
 	color: white;
-}
-
-#logout_btn{
-	display: none;
 }
